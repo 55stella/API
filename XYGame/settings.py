@@ -15,6 +15,7 @@ from dotenv import load_dotenv, find_dotenv
 import os
 from dotenv.main import find_dotenv
 load_dotenv(find_dotenv())
+env = os.getenv('ENVIRONMENT', 'developement')
 
 
 
@@ -49,8 +50,8 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
-    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
