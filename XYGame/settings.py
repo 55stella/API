@@ -13,7 +13,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 from pathlib import Path
 from dotenv import load_dotenv
 import os
-# env = os.getenv('ENVIRONMENT', 'developement')
+env = os.getenv('ENVIRONMENT', 'developement')
 
 from dotenv.main import find_dotenv
 load_dotenv(find_dotenv())
@@ -84,32 +84,32 @@ WSGI_APPLICATION = 'XYGame.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
-# if env == 'developement':
-#     DATABASES = {
-#         'default': {
-#             'ENGINE': 'django.db.backends.sqlite3',
-#             'NAME': BASE_DIR / 'db.sqlite3',
-#         }
-#     }
-# else:
-#     DATABASES={
-#         'default': {
-#             'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#             'NAME' : os.getenv('DB_NAME'),
-#             'USER' : os.getenv('DB_USER'),
-#             'PASSWORD' : os.getenv('DB_PASSWORD'),
-#             'HOST' : os.getenv('DB_HOST'),
-#             'PORT' : os.getenv('DB_PORT'),
-
-#         }
-#     }
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+if env == 'developement':
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
+        }
     }
-}
+else:
+    DATABASES={
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql_psycopg2',
+            'NAME' : os.getenv('DB_NAME'),
+            'USER' : os.getenv('DB_USER'),
+            'PASSWORD' : os.getenv('DB_PASSWORD'),
+            'HOST' : os.getenv('DB_HOST'),
+            'PORT' : os.getenv('DB_PORT'),
+
+        }
+    }
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
 
 
 # Password validation
@@ -147,13 +147,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
 STATIC_URL = 'static/'
-
-
 STATIC_ROOT= os.path.join(BASE_DIR, 'staticfiles')#here we are adding our base directory to our static files
 STATIC_STORAGE ='whitenoise.storage.CompressedManifestStaticFilesStorage'
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'static'),
-)
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
