@@ -10,11 +10,7 @@ from django.contrib.auth.hashers import make_password,check_password
 from rest_framework.response import Response
 from rest_framework import status
 
-
-
-
 # Create your views here.
-
 user = get_user_model()
 @swagger_auto_schema(methods=['POST'], request_body=Signupserializers())
 @authentication_classes([BasicAuthentication])
