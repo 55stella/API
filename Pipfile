@@ -9,6 +9,7 @@ psycopg2-binary = "*"
 python-dotenv = "*"
 coreapi = "*"
 drf-yasg = "*"
+gunicorn = "*"
 
 [dev-packages]
 
