@@ -8,6 +8,7 @@ djangorestframework = "*"
 psycopg2-binary = "*"
 python-dotenv = "*"
 coreapi = "*"
+drf-yasg = "*"
 
 [dev-packages]
 
