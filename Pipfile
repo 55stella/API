@@ -10,6 +10,7 @@ python-dotenv = "*"
 coreapi = "*"
 drf-yasg = "*"
 gunicorn = "*"
+tox-pipenv = "*"
 
 [dev-packages]
 
