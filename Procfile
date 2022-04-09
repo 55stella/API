@@ -1,1 +1,1 @@
-web: gunicorn  -b xx.xxx.xxx.xx:8000 -w 3 XYGame.py
+web: gunicorn  -b "0.0.0.0:8000" -w 3 XYGame.py
